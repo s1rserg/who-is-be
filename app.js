@@ -20,3 +20,4 @@ sequelize
   });
 
 app.use("/", mainRoutes);
+app.use(express.static('./images'));

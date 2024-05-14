@@ -17,4 +17,6 @@ router.get('/person/:id/events', controllers.getEventsByPerson);
 // Get all connections for a specific person
 router.get('/person/:id/connections', controllers.getConnectionsByPerson);
 
+router.get('/images/:id', controllers.getImageById);
+
 module.exports = router;

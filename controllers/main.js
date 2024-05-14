@@ -80,3 +80,19 @@ exports.getConnectionsByPerson = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+const path = require('path');
+const fs = require('fs');
+
+exports.getImageById = (req, res) => {
+    const imageId = req.params.id;
+    const imagePath = './images/' + imageId
+    fs.access(imagePath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error(err)
+            res.status(404).send('Image not found');
+        } else {
+            res.sendFile(path.resolve(imagePath));
+        }
+    });
+}
