@@ -103,7 +103,7 @@ async function seedDatabase() {
     firstName: "Петро",
     lastName: "Порошенко",
     patronymic: "Олексійович",
-    photo: null,
+    photo: 'petroPoroshenko.jpg',
     rating: 1,
     description:
       "Бізнесмен, народний депутат багатьох скликань. Працював міністром закордонних справ і міністром економіки і торгівлі. Був членом Ради Національного банку України. Найбільш відомий як 5-й президент України.",
@@ -113,7 +113,7 @@ async function seedDatabase() {
     firstName: "Юлія",
     lastName: "Тимошенко",
     patronymic: "Володимирівна",
-    photo: null,
+    photo: 'yuliaTymoshenko.jpg',
     rating: 0,
     description:
       "(27 листопада 1960 р.) — українська державна та політична діячка, Народний депутат України. Двічі Прем'єр-міністр України (2005, 2007—2010).",
@@ -175,7 +175,7 @@ async function seedDatabase() {
     firstName: "Олександр",
     lastName: "Комаров",
     patronymic: "Валерійович", 
-    photo: null,
+    photo: 'oleksandrKomarov.jpg',
     rating: 1,
     description: "(народився 7 листопада 1972) — український топ-менеджер, президент компанії Київстар",
     industry: "Business"
@@ -185,7 +185,7 @@ async function seedDatabase() {
     firstName: "Володимир",
     lastName: "Поперешнюк",
     patronymic: "Анатолійович",
-    photo: null,
+    photo: 'volodymyrPopereshnyuk.jpg',
     rating: 1, 
     description: "(нар. 22 червня 1975, Кишинів, Молдова) — український підприємець, співзасновник компанії «Нова Пошта»",
     industry: "Business"
@@ -194,8 +194,8 @@ async function seedDatabase() {
   const oleksandrKonotopskyi = await Person.create({
     firstName: "Олександр",
     lastName: "Конотопський",
-    patronymic: null,
-    photo: null,
+    patronymic: 'Володимирович',
+    photo: 'oleksandrKonotopskyi.jpg',
     rating: 1,
     description: "(нар. 7 червня 1986, Київ, УРСР) — український підприємець, інвестор та інженер. Відомий як засновник компанії Ajax Systems.",
     industry: "Business"
@@ -205,7 +205,7 @@ async function seedDatabase() {
     firstName: "Віктор", 
     lastName: "Ющенко",
     patronymic: "Андрійович",
-    photo: null,
+    photo: 'viktorYushchenko.jpg',
     rating: 1,
     description: "(нар. 23 лютого 1954, с. Хоружівка, Недригайлівський район, Сумська область) — український політик і державний діяч, банкір. Найбільш відомир як 3-й Президент України", 
     industry: "Politics"
@@ -290,6 +290,42 @@ async function seedDatabase() {
     type: "Politics",
     link: "https://zakon.rada.gov.ua/laws/show/1333-14#Text",
     description: "Зайняв посаду Прем'єр-міністра України"
+  });
+
+  const valentynKrasnopiorov = await Person.create({
+    firstName: "Валентин",
+    lastName: "Краснопьоров",
+    patronymic: "Миколайович",
+    photo: 'valentynKrasnopiorov.jpg',
+    rating: 1,
+    description: "Голова правління ГО «Сильні громади», громадський діяч, політичний аналітик, бізнесмен, просвітник, засновник ініціативи \"Останній капіталіст\".",
+    industry: "Media"
+  });
+  
+  await Events.create({
+    personId: valentynKrasnopiorov.id,
+    title: "Очолює координаційний центр ЧЕСНО в Донецьку",
+    year: 2012,
+    type: "Civil Society",
+    link: "https://www.chesno.org/post/2783/",
+    description: "Валентин Краснопьоров очолює координаційний центр ромадянського руху ЧЕСНО в Донецьку."
+  });
+  
+  await Events.create({
+    personId: valentynKrasnopiorov.id,
+    title: "Засновник ГО \"Сильні громади\"",
+    year: 2019,
+    type: "Civil Society", 
+    link: "https://opendatabot.ua/c/42769261",
+    description: "Валентин Краснопьоров стає одним із засновників громадської організації \"Сильні громади\"."
+  });
+  
+  await Events.create({
+    personId: valentynKrasnopiorov.id,
+    title: "Засновник ініціативи \"Останній капіталіст\"",
+    year: 2021,
+    type: "Media",
+    description: "Валентин Краснопьоров засновує ініціативу \"Останній капіталіст\"."
   });
 
   console.log("Database seeded successfully!");
